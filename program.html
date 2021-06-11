@@ -132,15 +132,51 @@ Still to be announced.
 
 DBW -->
 
+<script type="text/javascript">
+function displayDate(dt) {
+  var hour = dt.getHours();
+  var minute = dt.getMinutes();
+  var temp = '' + ((hour > 12) ? hour - 12 : hour);
+  if (hour == 0)
+    temp = '12';
+  temp += ((minute < 10) ? ':0' : ':') + minute;
+  temp += (hour >= 12) ? ' PM' : ' AM';
+  temp += (dt.getDay() - dt.getUTCDay() == 1 ? ' (Nov. 17)' : '');
+  return temp;
+}
+
+function getTimezoneOffset() {
+  var offset = -(new Date()).getTimezoneOffset()/60;
+  var temp = "UTC" + (offset >= 0 ? "+" : "") + offset;
+  return temp;
+}
+
+function getLocalTimezone() {
+  try {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone + ", " + getTimezoneOffset();
+  }
+  catch(e) {
+    return getTimezoneOffset();
+  }
+}
+
+function writeTimeRange(startTime, endTime) {
+  var startTimeObj = new Date("2021-06-25T" + startTime + ":00.000+00:00");
+  var endTimeObj = new Date("2021-06-25T" + endTime + ":00.000+00:00");
+
+  return document.write(displayDate(startTimeObj) + " - " + displayDate(endTimeObj) + " (" + getLocalTimezone() +")");
+}
+</script>
+
 <h3 class="title">Technical Program</h3> <!--(BST time zone)</h3--> 
-<p>TBA</p>
-<!--p>
-<b>13:50 - 14:00 Welcome and Opening Remarks</b> 
+<!--p>TBA</p-->
+<p>
+<b><script type="text/javascript">writeTimeRange("13:00", "13:10")</script><noscript>13:00pm - 13:10pm (UTC time zone)</noscript>:<BR> Welcome and Opening Remarks</b> 
 <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-Stylianos I. Venieris (Samsung AI)
+<!--Stylianos I. Venieris (Samsung AI)-->
 </p>
 
-<p>
+<!--p>
 <b>14:00 - 14:45 Keynote 1</b>
 <BR>
 Session Chair: Nic Lane (Samsung AI, University of Cambridge)
@@ -161,18 +197,187 @@ Session Chair: Nic Lane (Samsung AI, University of Cambridge)
 </td>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
 </tr>
-</table> 
+</table--> 
 
-<!--p>
-<b>10:00 - 10:30 Session 1</b>
-</p-->
-<!--p>
-<b>14:45 - 15:30 Session 1</b>
+<p>
+<b><script type="text/javascript">writeTimeRange("13:10", "14:10")</script><noscript>1.10pm - 2.10pm (UTC time zone)</noscript>:<BR>
+Session 1 - Efficient Mobile DNN Inference</b>
 <BR>
-Session Chair: Yunxin Liu (Microsoft Research)
+<!--Session Chair: Yunxin Liu (Microsoft Research)-->
 </p>
 
 <table>
+<tr valign='top'>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<div style="font-size: small;">
+<b><!--a href="https://dl.acm.org/doi/10.1145/3410338.3412337"-->ParallelFusion: Towards Maximum Utilization of Mobile GPU for DNN Inference
+<!--/a--></b>&nbsp;<BR>Jingyu Lee (<i>Seoul National University</i>), Yunxin Liu (<i>Institute for AI Industry Research (AIR), Tsinghua University</i>), Youngki Lee (<i>Seoul National University</i>)
+<BR>
+<!--a href="videos/[2020]_emdl_classifying_wlan_packets_from_the_rf_envelope.mp4">Full presentation</a-->
+</div> 
+</td>
+</tr>
+</table>
+
+<BR>
+<table>
+<tr valign='top'>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<div style="font-size: small;">
+<b><!--a href="https://dl.acm.org/doi/10.1145/3410338.3412340"-->Adaptive Inference through Early-Exit Networks: Design, Challenges and Directions
+<!--/a--></b>&nbsp;<BR>
+Stefanos Laskaridis, Alexandros Kouris (<i>Samsung AI Center-Cambridge</i>), Nicholas D. Lane (<i>University of Cambridge, Samsung AI Center-Cambridge</i>)
+<BR>
+<!--a href="https://media.githubusercontent.com/media/emdl20/emdl20.github.io/master/videos/2020_emdl_amplitude_suppression_and_direct_activation_in_networks_for_1bit_frcnn.mp4">Full presentation</a-->
+</div> 
+</td>
+</tr>
+</table>
+
+<BR>
+
+<p>
+<b><script type="text/javascript">writeTimeRange("14:10", "14:30")</script><noscript>2.10pm - 2.30pm (UTC time zone)</noscript>:<BR>
+Coffee Break</b>
+<BR>
+<!--Session Chair: Yunxin Liu (Microsoft Research)-->
+</p>
+
+<p>
+<b><script type="text/javascript">writeTimeRange("14:30", "15:30")</script><noscript>2.30pm - 3.30pm (UTC time zone)</noscript>:<BR>
+Keynote Talk</b>
+<BR>
+<!--Session Chair: Yunxin Liu (Microsoft Research)-->
+</p>
+
+<table>
+	<tr valign='top'>
+	<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	<td><img height=105 src='images/kun_wang.jpg' /></td>
+	<td>
+	<div style="font-size: small;">
+	<b><a href='keynote.html#kunwang'>TBA</a></b>
+	<BR><BR>
+	<a href='http://eda.ee.ucla.edu/people/kun-wang/index.html'>Kun Wang</a></b>
+	<BR>
+	<i>UCLA</i>
+	</div>
+	</td>
+	<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	</tr>
+</table> 
+
+<p>
+<b><script type="text/javascript">writeTimeRange("15:30", "16:00")</script><noscript>3.30pm - 4.00pm (UTC time zone)</noscript>:<BR>
+Lunch Break</b>
+<BR>
+<!--Session Chair: Yunxin Liu (Microsoft Research)-->
+</p>
+
+<p>
+<b><script type="text/javascript">writeTimeRange("16:00", "17:00")</script><noscript>4.00pm - 5.00pm (UTC time zone)</noscript>:<BR>
+Session 2 - The State of On-Device Deep Learning</b>
+<BR>
+<!--Session Chair: Yunxin Liu (Microsoft Research)-->
+</p>
+
+<table>
+<tr valign='top'>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<div style="font-size: small;">
+<b><!--a href="https://dl.acm.org/doi/10.1145/3410338.3412337"-->Towards Ubiquitous Learning: A First Measurement of On-Device Training Performance
+<!--/a--></b>&nbsp;<BR>Dongqi Cai (<i>Beijing University of Posts and Telecommunications</i>), Qipeng Wang, Yuanqiang Liu (<i>Peking University</i>), Yunxin Liu (<i>Microsoft Research</i>), Shangguang Wang (<i>Shenzhen Research Institute, Beijing University of Posts and Telecommunications</i>), Mengwei Xu (<i>Beijing University of Posts and Telecommunications</i>)
+<BR>
+<!--a href="videos/[2020]_emdl_classifying_wlan_packets_from_the_rf_envelope.mp4">Full presentation</a-->
+</div> 
+</td>
+</tr>
+</table>
+
+<BR>
+<table>
+<tr valign='top'>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<div style="font-size: small;">
+<b><!--a href="https://dl.acm.org/doi/10.1145/3410338.3412340"-->Are Mobile DNN Accelerators Accelerating DNNs?
+<!--/a--></b>&nbsp;<BR>
+Stefanos Laskaridis, Alexandros Kouris (<i>Samsung AI Center-Cambridge</i>), Nicholas D. Lane (<i>University of Cambridge, Samsung AI Center-Cambridge</i>)
+<BR>
+<!--a href="https://media.githubusercontent.com/media/emdl20/emdl20.github.io/master/videos/2020_emdl_amplitude_suppression_and_direct_activation_in_networks_for_1bit_frcnn.mp4">Full presentation</a-->
+</div> 
+</td>
+</tr>
+</table>
+
+<BR>
+
+<p>
+<b><script type="text/javascript">writeTimeRange("17:00", "17:20")</script><noscript>5.00pm - 5.20pm (UTC time zone)</noscript>:<BR>
+Coffee Break</b>
+<BR>
+<!--Session Chair: Yunxin Liu (Microsoft Research)-->
+</p>
+
+<p>
+<b><script type="text/javascript">writeTimeRange("17:20", "18:35")</script><noscript>5.20pm - 6.35pm (UTC time zone)</noscript>:<BR>
+Session 3 - Low-Cost & Low-Power Deep Learning</b>
+<BR>
+<!--Session Chair: Yunxin Liu (Microsoft Research)-->
+</p>
+
+<table>
+<tr valign='top'>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<div style="font-size: small;">
+<b><!--a href="https://dl.acm.org/doi/10.1145/3410338.3412337"-->Benchmarking Video Object Detection Systems on Embedded Devices under Resource Contention
+<!--/a--></b>&nbsp;<BR>Jayoung Lee, Pengcheng Wang, Ran Xu (<i>Purdue University</i>), Venkateswara Dasari, Noah Weston (<i>Army Research Lab</i>), Yin Li (<i>University of Wisconsin-Madison</i>), Saurabh Bagchi, Somali Chaterji (<i>Purdue University</i>)
+<BR>
+<!--a href="videos/[2020]_emdl_classifying_wlan_packets_from_the_rf_envelope.mp4">Full presentation</a-->
+</div> 
+</td>
+</tr>
+</table>
+
+<BR>
+<table>
+<tr valign='top'>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<div style="font-size: small;">
+<b><!--a href="https://dl.acm.org/doi/10.1145/3410338.3412340"-->Battery-Free Camera Occupancy Detection System
+<!--/a--></b>&nbsp;<BR>
+Ali Saffari (<i>University of Washington</i>), Sin Yong Tan (<i>Iowa State University</i>), Mohamad Katanbaf (<i>University of Whashington</i>), Homagni Saha (<i>Iowa State University</i>), Joshua Smith (<i>University of Whashington</i>), Soumik Sarkar (<i>Iowa State University</i>)
+<BR>
+<!--a href="https://media.githubusercontent.com/media/emdl20/emdl20.github.io/master/videos/2020_emdl_amplitude_suppression_and_direct_activation_in_networks_for_1bit_frcnn.mp4">Full presentation</a-->
+</div> 
+</td>
+</tr>
+</table>
+
+<BR>
+<table>
+<tr valign='top'>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>
+<div style="font-size: small;">
+<b><!--a href="https://dl.acm.org/doi/10.1145/3410338.3412340"-->Enabling Binary Neural Network Training on the Edge
+<!--/a--></b>&nbsp;<BR>
+Erwei Wang, James J. Davis (<i>Imperial College London</i>), Daniele Moro, Piotr Zielinski (<i>Google</i>), Jia Jie Lim (<i>Imperial College London</i>), Claudionor Coelho (<i>Palo Alto Networks</i>), Satrajit Chatterjee (<i>Google</i>), George A. Constantinides (<i>Imperial College London</i>)
+<BR>
+<!--a href="https://media.githubusercontent.com/media/emdl20/emdl20.github.io/master/videos/2020_emdl_amplitude_suppression_and_direct_activation_in_networks_for_1bit_frcnn.mp4">Full presentation</a-->
+</div> 
+</td>
+</tr>
+</table>
+
+<BR>
+
+<!--table>
 <tr valign='top'>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 <td>
@@ -687,6 +892,7 @@ QualityDeepSense: Quality-Aware Deep Learning Framework for Internet of Things A
 			<h2><a href="program.html">Technical Program</a></h2>
 			<h2><a href="history.html">Prior Workshops</a></h2>
 			<h2><a href="submission.html">Submissions</a></h2>
+			<h2><a href="camera_ready.html">Camera-Ready Instructions</a></h2>
 	
 			<BR>
 			<li>
