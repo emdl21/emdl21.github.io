@@ -141,7 +141,7 @@ function displayDate(dt) {
     temp = '12';
   temp += ((minute < 10) ? ':0' : ':') + minute;
   temp += (hour >= 12) ? ' PM' : ' AM';
-  temp += (dt.getDay() - dt.getUTCDay() == 1 ? ' (Nov. 17)' : '');
+  //temp += (dt.getDay() - dt.getUTCDay() == 1 ? ' (Nov. 17)' : '');
   return temp;
 }
 
